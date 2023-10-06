@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+    <name>Your Project Name</name>
+    <description>Your project description</description>
+    <sourceDirectories>
+        <sourceDirectory>
+            <directory>src</directory>
+            <includes>
+                <include>**/*.java</include>
+            </includes>
+        </sourceDirectory>
+    </sourceDirectories>
+    <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-javadoc-plugin</artifactId>
+            <version>3.3.0</version>
+            <configuration>
+                <doclet>com.sun.tools.doclets.formats.html.XmlDoclet</doclet>
+                <docletArtifact>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>xml-maven-plugin</artifactId>
+                    <version>1.0-beta-3</version>
+                </docletArtifact>
+                <show>private</show>
+                <detectLinks>false</detectLinks>
+                <additionalparam>-noindex</additionalparam>
+                <sourcepath>${project.build.sourceDirectory}</sourcepath>
+                <useStandardDocletOptions>false</useStandardDocletOptions>
+                <charset>UTF-8</charset>
+            </configuration>
+            <executions>
+                <execution>
+                    <id>attach-javadocs</id>
+                    <goals>
+                        <goal>jar</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
+    </plugins>
+</project>
